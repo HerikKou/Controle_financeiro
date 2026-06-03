@@ -159,6 +159,14 @@ Categorização automática de gastos requer NLP ou tabelas de mapeamento extens
 
 ---
 
+## Principais desafios
+
+- Modelar comunicação assíncrona entre serviços
+- Garantir desacoplamento sem REST interno
+- Consolidar gastos mensais sem banco compartilhado
+- Construir prompts financeiros úteis para o LLM
+---
+
 ## 🛠️ Stack Tecnológica
 
 | Categoria | Tecnologia | Motivo |

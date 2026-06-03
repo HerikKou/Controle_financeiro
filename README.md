@@ -30,11 +30,7 @@ O projeto foi desenvolvido com foco em:
 <img width="1137" height="629" alt="image" src="https://github.com/user-attachments/assets/60234c4b-dfca-4f97-a068-a514137901c8" />
 
 
-Fluxo principal:
 
-```
-POST /pagamentos → PagamentoService → [pagamento_criado] → ExtratoService → [extrato_atualizado] → LLMService → Claude API
-```
 
 ---
 

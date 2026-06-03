@@ -27,7 +27,8 @@ O projeto foi desenvolvido com foco em:
 
 ## 🏗️ Arquitetura
 
-<img width="1145" height="628" alt="image" src="https://github.com/user-attachments/assets/4d0dba59-16a7-4a8b-9a33-36567a3423d0" />
+<img width="1137" height="629" alt="image" src="https://github.com/user-attachments/assets/60234c4b-dfca-4f97-a068-a514137901c8" />
+
 
 Fluxo principal:
 
@@ -240,7 +241,8 @@ docker-compose down -v     # para + apaga os volumes (banco)
 
 
 ## ☁️AWS 
-<img width="921" height="481" alt="image" src="https://github.com/user-attachments/assets/6396bfc6-ab9b-4448-9ec8-2cfbdca4b190" />
+<img width="1048" height="480" alt="image" src="https://github.com/user-attachments/assets/45c1b074-f008-4901-9ec1-888793583a0b" />
+
 
 | Recurso | Uso |
 |---|---|

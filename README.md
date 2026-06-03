@@ -25,11 +25,13 @@ O projeto foi desenvolvido com foco em:
 
 ---
 
-## 🏗️ Arquitetura
+## 🏗️ Arquitetura Técnica
 
 <img width="1137" height="629" alt="image" src="https://github.com/user-attachments/assets/60234c4b-dfca-4f97-a068-a514137901c8" />
 
-
+---
+##  Arquitetura de Negócio
+<img width="717" height="712" alt="image" src="https://github.com/user-attachments/assets/f12cc687-6f99-4b07-8bd2-0ffa3601d9ba" />
 
 
 ---

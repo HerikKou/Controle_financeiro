@@ -1,17 +1,12 @@
 # 💰 Projeto Financeiro — Microserviços
 
-Sistema de gestão financeira baseado em microserviços com comunicação assíncrona via Kafka e geração de insights com IA (Claude).
-
+Plataforma de controle financeiro baseada em microsserviços e arquitetura orientada a eventos. Os pagamentos são processados e consolidados mensalmente por um serviço de extrato, que publica eventos consumidos por um serviço de IA responsável por gerar recomendações financeiras personalizadas, projeções de economia e insights sobre os hábitos de consumo do usuário.
 ---
 
 ## 🏗️ Arquitetura
 
-```
-PagamentoService  →  [pagamento_criado]  →  ExtratoService  →  [extrato_atualizado]  →  LLMService
-     ↓                     Kafka                  ↓                    Kafka                 ↓
-  PostgreSQL                               PostgreSQL                              PostgreSQL + Claude API
-(pagamentodb)                             (extratodb)                                   (llmdb)
-```
+<img width="1145" height="628" alt="image" src="https://github.com/user-attachments/assets/4d0dba59-16a7-4a8b-9a33-36567a3423d0" />
+
 
 ---
 
@@ -211,14 +206,13 @@ Todos os serviços têm logs estruturados via **SLF4J/Logback**. Futuramente int
 
 ---
 
-## ☁️ Deploy AWS (planejado)
+## ☁️ Deploy AWS 
 
 | Recurso | Uso |
 |---------|-----|
 | **ECS** | Rodar os containers dos 3 serviços |
 | **ECR** | Armazenar as imagens Docker |
-| **MSK** | Kafka gerenciado na AWS |
-| **RDS** | PostgreSQL gerenciado |
+
 
 ---
 

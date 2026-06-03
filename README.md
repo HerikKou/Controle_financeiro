@@ -163,13 +163,13 @@ Categorização automática de gastos requer NLP ou tabelas de mapeamento extens
 
 | Categoria | Tecnologia | Motivo |
 |---|---|---|
-| Linguagem | Java 17 | LTS, suporte nativo no ecossistema Spring |
+| Linguagem | Java 17 |  suporte nativo no ecossistema Spring |
 | Framework | Spring Boot 3.2 | Integração nativa com Kafka e JPA |
-| Mensageria | Apache Kafka | Durabilidade de eventos, desacoplamento, replay |
+| Mensageria | Apache Kafka | Replay de eventos, desacoplamento, Alto processamento  |
 | Banco de dados | PostgreSQL 15 | Precisão monetária com NUMERIC, robustez transacional |
 | IA / LLM | Claude (Anthropic) | Qualidade de linguagem natural em português para domínio financeiro |
 | Containerização | Docker + Compose | Ambiente reproduzível com um único comando |
-| Observabilidade | SLF4J + Datadog | Logs estruturados locais; Datadog para traces em produção |
+
 
 ---
 
@@ -231,7 +231,8 @@ docker-compose down -v     # para + apaga os volumes (banco)
 ---
 
 
-## ☁️ Deploy AWS (Planejado)
+## ☁️AWS 
+<img width="921" height="481" alt="image" src="https://github.com/user-attachments/assets/6396bfc6-ab9b-4448-9ec8-2cfbdca4b190" />
 
 | Recurso | Uso |
 |---|---|

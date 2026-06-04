@@ -16,11 +16,5 @@ public class KafkaTopicConfig {
                 .build();
     }
 
-    @Bean
-    public NewTopic topicDlq() {
-        return TopicBuilder.name("dlq")
-                .partitions(1)
-                .replicas(1)
-                .build();
-    }
+
 }

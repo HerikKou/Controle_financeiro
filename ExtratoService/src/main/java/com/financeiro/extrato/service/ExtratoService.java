@@ -11,7 +11,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.RetryableTopic;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.stereotype.Service;
-
+import org.springframework.kafka.annotation.DltHandler;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -55,7 +55,7 @@ public class ExtratoService {
         }
     }
 
-    @KafkaListener(topics = "dlq", groupId = "extrato-service-dlq-group")
+    @DltHandler
     public void escutarDlq(PagamentoCriadoDTO evento) {
         dlqHandler.handle(evento);
     }

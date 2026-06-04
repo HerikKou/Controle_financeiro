@@ -1,10 +1,12 @@
 package com.financeiro.llm.model;
 
+import com.financeiro.llm.statemachine.StatusInsight;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "insights_financeiros")
+@Table(name = "insights_financeiros",
+       uniqueConstraints = @UniqueConstraint(columnNames = {"usuarioId", "mes", "ano"}))
 public class InsightFinanceiro {
 
     @Id
@@ -12,15 +14,17 @@ public class InsightFinanceiro {
     private Long id;
 
     private Long usuarioId;
-
     private Integer mes;
-
     private Integer ano;
 
     @Column(columnDefinition = "TEXT")
     private String mensagem;
 
+    @Enumerated(EnumType.STRING)
+    private StatusInsight status = StatusInsight.RECEBIDO;
+
     private LocalDateTime geradoEm = LocalDateTime.now();
+    private LocalDateTime atualizadoEm = LocalDateTime.now();
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -37,6 +41,15 @@ public class InsightFinanceiro {
     public String getMensagem() { return mensagem; }
     public void setMensagem(String mensagem) { this.mensagem = mensagem; }
 
+    public StatusInsight getStatus() { return status; }
+    public void setStatus(StatusInsight status) {
+        this.status = status;
+        this.atualizadoEm = LocalDateTime.now();
+    }
+
     public LocalDateTime getGeradoEm() { return geradoEm; }
     public void setGeradoEm(LocalDateTime geradoEm) { this.geradoEm = geradoEm; }
+
+    public LocalDateTime getAtualizadoEm() { return atualizadoEm; }
+    public void setAtualizadoEm(LocalDateTime atualizadoEm) { this.atualizadoEm = atualizadoEm; }
 }

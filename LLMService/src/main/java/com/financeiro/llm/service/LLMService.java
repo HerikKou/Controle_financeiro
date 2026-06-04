@@ -10,7 +10,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.annotation.RetryableTopic;
 import org.springframework.retry.annotation.Backoff;
 import org.springframework.stereotype.Service;
-
+import org.springframework.kafka.annotation.DltHandler;
 @Service
 public class LLMService {
 
@@ -48,7 +48,7 @@ public class LLMService {
         }
     }
 
-    @KafkaListener(topics = "dlq", groupId = "llm-service-dlq-group")
+    @DltHandler
     public void escutarDlq(ExtratoAtualizadoDTO evento) {
         dlqHandler.handle(evento);
     }

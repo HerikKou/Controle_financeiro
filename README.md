@@ -211,7 +211,7 @@ RECEBIDO → PROCESSANDO → ERRO_PROCESSAMENTO
 | Banco de dados | PostgreSQL 15 | Precisão monetária com NUMERIC, robustez transacional |
 | IA / LLM | Claude (Anthropic) | Qualidade de linguagem natural em português para domínio financeiro |
 | Containerização | Docker + Compose | Ambiente reproduzível com um único comando |
-
+| Observabilidade | Datadog |Monitoramento de logs, métricas e saúde dos microsserviços, facilitando a identificação de falhas, análise de eventos Kafka e acompanhamento do fluxo distribuído |
 
 ---
 

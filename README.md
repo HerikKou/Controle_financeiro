@@ -157,7 +157,43 @@ O ecossistema Spring (Spring Kafka, Spring Data JPA) tem a integração mais mad
 Categorização automática de gastos requer NLP ou tabelas de mapeamento extensas com alta taxa de erro. O resumo mensal resolve o problema principal (quanto gastei este mês?) sem depender de classificação correta de cada transação. É simples, confiável e suficiente para o modelo de IA gerar insights úteis.
 
 ---
+### Resiliência e Confiabilidade
+Retry Automático
 
+O ExtratoService utiliza retries automáticos para lidar com falhas transitórias durante o processamento dos eventos. Caso ocorra uma indisponibilidade temporária de banco de dados, rede ou serviço externo, a mensagem é reprocessada automaticamente antes de ser considerada inválida.
+
+Benefício: aumenta a tolerância a falhas sem exigir intervenção manual.
+
+### Dead Letter Topic (DLT)
+
+Após esgotar todas as tentativas de retry, o evento é encaminhado para uma Dead Letter Topic (DLT), onde pode ser analisado ou reprocessado posteriormente.
+
+Objetivo: evitar perda de mensagens e permitir investigação de falhas permanentes.
+
+Fluxo:
+
+pagamento_criado → Retry → Retry → Retry → DLT
+
+### Idempotência
+
+Para evitar processamento duplicado, o sistema mantém controle do último pagamento processado para cada resumo mensal.
+
+Mesmo que o Kafka entregue a mesma mensagem mais de uma vez, o evento será ignorado caso já tenha sido processado anteriormente.
+
+Benefício: garante consistência dos valores consolidados mesmo em cenários de reentrega de mensagens.
+
+### Máquina de Estados
+
+O ciclo de vida do resumo mensal é controlado por estados:
+
+RECEBIDO → PROCESSANDO → CONSOLIDADO → PUBLICADO
+
+Em caso de falha:
+
+RECEBIDO → PROCESSANDO → ERRO_PROCESSAMENTO
+
+Essa abordagem facilita observabilidade, rastreabilidade e futuras estratégias de reprocessamento.
+---
 ## Principais desafios
 
 - Modelar comunicação assíncrona entre serviços

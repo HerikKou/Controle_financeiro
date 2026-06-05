@@ -192,7 +192,6 @@ Em caso de falha:
 
 RECEBIDO → PROCESSANDO → ERRO_PROCESSAMENTO
 
-Essa abordagem facilita observabilidade, rastreabilidade e futuras estratégias de reprocessamento.
 ---
 ## Principais desafios
 

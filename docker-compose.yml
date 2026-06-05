@@ -2,7 +2,6 @@ version: '3.8'
 
 services:
 
-  
   postgres:
     image: postgres:15-alpine
     container_name: postgres
@@ -23,7 +22,6 @@ services:
       timeout: 5s
       retries: 5
 
- 
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     container_name: zookeeper
@@ -38,7 +36,6 @@ services:
       timeout: 5s
       retries: 5
 
- 
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: kafka
@@ -52,7 +49,6 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-     
     networks:
       - financeiro-net
     healthcheck:
@@ -61,6 +57,25 @@ services:
       timeout: 10s
       retries: 5
 
+  datadog:
+    image: gcr.io/datadoghq/agent:latest
+    container_name: datadog-agent
+    environment:
+      DD_API_KEY: SuaChaveAPI
+      DD_SITE: datadoghq.com
+      DD_LOGS_ENABLED: "true"
+      DD_APM_ENABLED: "true"
+      DD_PROCESS_AGENT_ENABLED: "true"
+      DD_DOGSTATSD_NON_LOCAL_TRAFFIC: "true"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc:/host/proc:ro
+      - /sys/fs/cgroup:/host/sys/fs/cgroup:ro
+    ports:
+      - "8126:8126"
+    networks:
+      - financeiro-net
+    restart: unless-stopped
 
   pagamento-service:
     build: ./PagamentoService
@@ -80,7 +95,6 @@ services:
     networks:
       - financeiro-net
 
-  
   extrato-service:
     build: ./ExtratoService
     container_name: extrato-service
@@ -98,7 +112,6 @@ services:
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     networks:
       - financeiro-net
-
 
   llm-service:
     build: ./LLMService

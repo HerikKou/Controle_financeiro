@@ -156,6 +156,10 @@ O ecossistema Spring (Spring Kafka, Spring Data JPA) tem a integração mais mad
 
 Categorização automática de gastos requer NLP ou tabelas de mapeamento extensas com alta taxa de erro. O resumo mensal resolve o problema principal (quanto gastei este mês?) sem depender de classificação correta de cada transação. É simples, confiável e suficiente para o modelo de IA gerar insights úteis.
 
+### Por que Datadog para observabilidade?
+
+Em uma arquitetura distribuída baseada em eventos, identificar falhas pode ser mais complexo do que em aplicações monolíticas. Optei pelo Datadog para centralizar logs, métricas e monitoramento dos microsserviços, facilitando a análise do fluxo de eventos Kafka, identificação de gargalos e investigação de falhas. Além disso, a ferramenta é amplamente utilizada em ambientes corporativos para observabilidade de sistemas distribuídos.
+
 ---
 ### Resiliência e Confiabilidade
 Retry Automático

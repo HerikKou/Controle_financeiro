@@ -27,7 +27,8 @@ O projeto foi desenvolvido com foco em:
 
 ## 🏗️ Arquitetura Técnica
 
-<img width="1137" height="629" alt="image" src="https://github.com/user-attachments/assets/60234c4b-dfca-4f97-a068-a514137901c8" />
+<img width="832" height="714" alt="image" src="https://github.com/user-attachments/assets/8dd4397a-ab1f-4d31-bfe5-0b6b3fa08658" />
+
 
 ---
 ##  Arquitetura de Negócio
@@ -278,7 +279,8 @@ docker-compose down -v     # para + apaga os volumes (banco)
 
 
 ## ☁️AWS 
-<img width="1048" height="480" alt="image" src="https://github.com/user-attachments/assets/45c1b074-f008-4901-9ec1-888793583a0b" />
+<img width="590" height="382" alt="image" src="https://github.com/user-attachments/assets/cb70d457-c66c-470c-b089-ecf64be9954a" />
+
 
 
 | Recurso | Uso |
